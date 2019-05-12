@@ -23,6 +23,7 @@ public class Led {
         int[][] ocho = {{0,1,0}, {1,1,1}, {1,1,1}};
         int[][] nueve = {{0,1,0}, {1,1,1}, {0,1,1}};
         int[][] cero = {{0,1,0}, {1,0,1}, {1,1,1}};
+        int[][] negativo = {{0,0,0}, {0,1,0}, {0,0,0}};
         int i, j, k;
          
         for(i=0; i<numberOfChars; i++){
@@ -36,7 +37,7 @@ public class Led {
             else if(arg.charAt(i)=='8') chars[i] = ocho;
             else if(arg.charAt(i)=='9') chars[i] = nueve;
             else if(arg.charAt(i)=='0') chars[i] = cero;
-            else chars[i] = cuatro;
+            else chars[i] = negativo;
         }
          
         for (j = 0; j < 3; j++) {
