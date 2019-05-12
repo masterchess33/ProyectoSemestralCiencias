@@ -11,11 +11,26 @@ public class Main {
      * @param args
      */
     public static void main(String[] args) {
-        Led l=new Led();
-        System.out.println("Ingrese un numero");
-        String numero=recibirPalabra();
-        l.numeroAled(numero);
+
+        Calculadora c = new Calculadora("11 3 /");
+        Led l = new Led();
+        c.ingresarOperacion();
+        c.verificarOperaciones();
+        System.out.println(c.getValores());
+        //c.setResultado();
+        //l.numeroAled(c.getResultado());
+
+
+
+        /**
+         * Led l=new Led();
+         *         System.out.println("Ingrese un numero");
+         *         String numero=recibirPalabra();
+         *         l.numeroAled(numero);
+         */
+
     }
+
     public static String recibirPalabra() {
     String num = " ";
     boolean estado = true;

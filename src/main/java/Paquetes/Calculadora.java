@@ -6,43 +6,46 @@ public class Calculadora {
 
     private String operacion;
     private ArrayList<String> valores;
-    private double resultado;
+    private String resultado;
+
 
     public Calculadora(String operacion) {
         this.operacion = operacion;
         this.valores = new ArrayList<>();
-        this.resultado = 0;
+        this.resultado="";
     }
 
-    public void ingresarOperacion(String operacion) {
-        String[] datos = operacion.split("");
-        for (int i = 0; i < operacion.length(); i++) {
-            valores.add(i, datos[i]);
+    public void ingresarOperacion() {
+        String[] datos = this.operacion.split(" ");
+        for (int i = 0; i < datos.length; i++) {
+            valores.add(datos[i]);
         }
     }
 
     public void verificarOperaciones() {
         for (int i = 0; i < valores.size(); i++) {
             if (valores.get(i).equalsIgnoreCase("+")) {
-                ajustarArray(i, sumar(parseDouble(valores.get(i - 2)), parseDouble(valores.get(i - 1))));
+                ajustarArray(i, sumar(parseDouble(valores.get(i - 2)), parseDouble(valores.get(i - 1))));i=0;
             }
             if (valores.get(i).equalsIgnoreCase("-")) {
-                ajustarArray(i, restar(parseDouble(valores.get(i - 2)), parseDouble(valores.get(i - 1))));
+                ajustarArray(i, restar(parseDouble(valores.get(i - 2)), parseDouble(valores.get(i - 1))));i=0;
             }
             if (valores.get(i).equalsIgnoreCase("*")) {
-                ajustarArray(i, multiplicar(parseDouble(valores.get(i - 2)), parseDouble(valores.get(i - 1))));
+                ajustarArray(i, multiplicar(parseDouble(valores.get(i - 2)), parseDouble(valores.get(i - 1))));i=0;
             }
             if (valores.get(i).equalsIgnoreCase("/")) {
-                ajustarArray(i, dividir(parseDouble(valores.get(i - 2)), parseDouble(valores.get(i - 1))));
+                ajustarArray(i, dividir(parseDouble(valores.get(i - 2)), parseDouble(valores.get(i - 1))));i=0;
             }
             if (valores.get(i).equalsIgnoreCase("^")) {
-                ajustarArray(i, potencia(parseDouble(valores.get(i - 2)), parseDouble(valores.get(i - 1))));
+                ajustarArray(i, potencia(parseDouble(valores.get(i - 2)), parseDouble(valores.get(i - 1))));i=0;
             }
         }
     }
 
     public void mostrarResultado() {
-        System.out.println(valores.get(1));
+        for (String s: valores){
+            System.out.println(s);
+        }
     }
 
     public void ajustarArray(int i, double resultadoOPeracion) {
@@ -80,5 +83,16 @@ public class Calculadora {
         return Math.pow(num1, num2);
     }
 
+    public String getResultado() {
+        return resultado;
+    }
 
+    public void setResultado() {
+        int res=(int)Double.parseDouble(valores.get(0));
+        this.resultado= Integer.toString(res);
+    }
+
+    public ArrayList<String> getValores() {
+        return valores;
+    }
 }
