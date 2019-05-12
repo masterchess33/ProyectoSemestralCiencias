@@ -88,8 +88,9 @@ public class Calculadora {
     }
 
     public void setResultado() {
-        int res=(int)Double.parseDouble(valores.get(0));
-        this.resultado= Integer.toString(res);
+        String[] resultado= this.resultado.split(".");
+        double res=Double.parseDouble(valores.get(0));
+        this.resultado= Double.toString(res);
     }
 
     public ArrayList<String> getValores() {
