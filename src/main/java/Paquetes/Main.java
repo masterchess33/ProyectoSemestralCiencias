@@ -12,11 +12,12 @@ public class Main {
      */
     public static void main(String[] args) {
 
-        Calculadora c = new Calculadora("2 5 /");
+        System.out.println("Ingrese una operación");
+        String operacion=recibirPalabra();
+        Calculadora c = new Calculadora(operacion);
         Led l = new Led();
         c.ingresarOperacion();
         c.verificarOperaciones();
-        System.out.println(c.getValores());
         c.setResultado();
         l.numeroAled(c.getResultado());
 
